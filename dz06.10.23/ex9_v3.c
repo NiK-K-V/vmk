@@ -13,13 +13,13 @@ int main(void)
 	while(feof(f)==0) 
 	{ 
 		z=fgetc(f);
-		if((char)z=='e' && z!=EOF)
+		if(z=='e' && z!=EOF)
 		{
 			z2=fgetc(f);
-			if((char)z2=='n' && z2!=EOF)
+			if(z2=='n' && z2!=EOF)
 			{
 				z3=fgetc(f);
-				if((char)z3=='d' && z3!=EOF)
+				if(z3=='d' && z3!=EOF)
 				{
 					fputc('}', f2);
 				}
@@ -39,19 +39,19 @@ int main(void)
 		{
 			
 		
-		if((char)z=='b' && z!=EOF)
+		if(z=='b' && z!=EOF)
 		{
 			z2=fgetc(f);
-			if((char)z2=='e' && z2!=EOF)
+			if(z2=='e' && z2!=EOF)
 			{
 				z3=fgetc(f);
-				if((char)z3=='g' && z3!=EOF)
+				if(z3=='g' && z3!=EOF)
 				{
 					z4=fgetc(f);
-					if((char)z4=='i' && z4!=EOF)
+					if(z4=='i' && z4!=EOF)
 					{
 						z5=fgetc(f);
-						if((char)z5=='n' && z5!=EOF)
+						if(z5=='n' && z5!=EOF)
 						{
 							fputc('{', f2);
 						}
@@ -90,12 +90,13 @@ int main(void)
 				break;
 			}
 		}
+
 	}
 					
 	}
 	fclose(f2);
 	fclose(f);
-	f = fopen("file3", "w");
+	/*f = fopen("file3", "w");
 	f2 = fopen("file4", "r"); 
 	while(!feof(f2))
 	{
@@ -106,6 +107,6 @@ int main(void)
 		}
 	}
 	fclose(f2);
-	fclose(f);
+	fclose(f); */
 	return 0; 
 }
