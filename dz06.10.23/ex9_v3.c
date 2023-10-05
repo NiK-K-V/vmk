@@ -13,21 +13,20 @@ int main(void)
 	while(feof(f)==0) 
 	{ 
 		z=fgetc(f);
-		if((char)z=='e')
+		if((char)z=='e' && z!=EOF)
 		{
 			z2=fgetc(f);
-			if((char)z2=='n')
+			if((char)z2=='n' && z2!=EOF)
 			{
 				z3=fgetc(f);
-				if((char)z3=='d')
+				if((char)z3=='d' && z3!=EOF)
 				{
 					fputc('}', f2);
 				}
 				else
 				{
 					fputc(z, f2);
-					fputc(z2, f2);
-					fseek(f, -1,SEEK_CUR);
+					fseek(f, -2,SEEK_CUR);
 				}
 			}
 			else
@@ -40,44 +39,38 @@ int main(void)
 		{
 			
 		
-		if((char)z=='b')
+		if((char)z=='b' && z!=EOF)
 		{
 			z2=fgetc(f);
-			if((char)z2=='e')
+			if((char)z2=='e' && z2!=EOF)
 			{
 				z3=fgetc(f);
-				if((char)z3=='g')
+				if((char)z3=='g' && z3!=EOF)
 				{
 					z4=fgetc(f);
-					if((char)z4=='i')
+					if((char)z4=='i' && z4!=EOF)
 					{
 						z5=fgetc(f);
-						if((char)z5=='n')
+						if((char)z5=='n' && z5!=EOF)
 						{
 							fputc('{', f2);
 						}
 						else
 						{	
 							fputc(z, f2);
-							fputc(z2, f2);
-							fputc(z3, f2);
-							fputc(z4, f2);
-							fseek(f, -1,SEEK_CUR);
+							fseek(f, -4,SEEK_CUR);
 						}
 					}
 					else
 					{
 						fputc(z, f2);
-						fputc(z2, f2);
-						fputc(z3, f2);
-						fseek(f, -1,SEEK_CUR);
+						fseek(f, -3,SEEK_CUR);
 					}
 				}
 				else
 				{
 					fputc(z, f2);
-					fputc(z2, f2);
-					fseek(f, -1,SEEK_CUR);
+					fseek(f, -2,SEEK_CUR);
 				}
 			}
 			else
@@ -88,8 +81,14 @@ int main(void)
 		}
 		else
 		{
-			fputc(z, f2);
-			//fseek(f, -1,SEEK_CUR);
+			if(z!=EOF) 
+			{
+				fputc(z, f2);
+			}
+			else
+			{
+				break;
+			}
 		}
 	}
 					
@@ -101,7 +100,10 @@ int main(void)
 	while(!feof(f2))
 	{
 		z=fgetc(f2);
-		fputc(z, f);
+		if(z!=EOF)
+		{
+			fputc(z, f);
+		}
 	}
 	fclose(f2);
 	fclose(f);
