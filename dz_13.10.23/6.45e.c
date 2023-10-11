@@ -66,7 +66,7 @@ int count(tnode *p, int n)
 		return m;
 	}
 
-int main(int argc, char **argv)
+int main(void)
 {
 	tnode * tree = NULL;
 	int x;
