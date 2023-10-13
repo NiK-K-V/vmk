@@ -1,39 +1,65 @@
-a) 
+#include <string.h>
+//a) 
 struct point
 {
 	int x;
 	int y;
-}
+};
 
 
 struct point create_point ( int a, int b) 
-	{ struct point p; p.x=a; p.y=b; return p; }
+{ 
+	struct point p; 
+	p.x=a; 
+	p.y=b; 
+	return p; 
+};
 	
-b) 
+//b) 
 struct color_point
 {
 	int x;
 	int y;
 	char color[10];
-}
+};
 
-struct color_point create_point ( int a, int b, char color[]) 
-	{ struct color_point p; p.x=a; p.y=b; p.color=color[1; return p; }
+struct color_point create_cpoint ( int a, int b, char color[10]) 
+{ 
+	struct color_point p; 
+	p.x=a; 
+	p.y=b; 
+	strcpy(p.color, color); 
+	return p; 
+};
 
-c)
-struct complex_number
-{
-	double complex x;   //используется библиотека <complex.h>
-}
 
-struct complex_number create_point (dounle complex a) 
-	{ struct complex_point p; p.x=a; return p; }
-
-d)
+//d)
 struct rational_number
 {
-	unsigned int nominator, denominator;
+	unsigned int x;
+	unsigned int y;
+};
+
+struct rational_number create_rnumber ( unsigned int a, unsigned int b) 
+{ 
+	struct rational_number p; 
+	p.x=a; 
+	p.y=b; 
+	return p; 
+};
+
+//c)
+struct complex_number
+{
+	struct rational_number x;
+	struct rational_number y;
+};
+
+struct complex_number create_cnumber(unsigned int a, unsigned int b, unsigned int a2, unsigned int b2)
+{
+	struct complex_number p;
+	p.x= create_rnumber(a,  b);
+	p.y= create_rnumber(a2, b2);
+	return p;
 }
 
-struct point create_point (unsigned int a, unsigned int b) 
-	{ struct point p; p.nominator=a; p.denominator=b; return p; }
